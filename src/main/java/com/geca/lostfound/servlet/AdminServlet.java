@@ -1,0 +1,42 @@
+package com.geca.lostfound.servlet;
+
+import com.geca.lostfound.service.ClaimService;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.*;
+import java.io.IOException;
+
+@WebServlet(urlPatterns = {
+        "/admin/claims",
+        "/admin/approve",
+        "/admin/reject"
+})
+public class AdminServlet extends HttpServlet {
+
+    private ClaimService claimService = new ClaimService();
+
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp)
+            throws ServletException, IOException {
+
+        String path = req.getServletPath();
+
+        if ("/admin/claims".equals(path)) {
+
+            req.setAttribute("claims", claimService.getPendingClaims());
+            req.getRequestDispatcher("/WEB-INF/views/admin/claims.jsp").forward(req, resp);
+
+        } else if ("/admin/approve".equals(path)) {
+
+            Long id = Long.parseLong(req.getParameter("id"));
+            claimService.approve(id);
+            resp.sendRedirect("claims");
+
+        } else if ("/admin/reject".equals(path)) {
+
+            Long id = Long.parseLong(req.getParameter("id"));
+            claimService.reject(id);
+            resp.sendRedirect("claims");
+        }
+    }
+}

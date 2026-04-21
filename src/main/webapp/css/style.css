@@ -1,0 +1,57 @@
+body{
+    font-family: Arial, sans-serif;
+    background:#f4f6f8;
+    margin:40px;
+}
+
+h2{
+    color:#2c3e50;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    background:white;
+}
+
+th,td{
+    padding:10px;
+    border:1px solid #ddd;
+    text-align:left;
+}
+
+th{
+    background:#3498db;
+    color:white;
+}
+
+input,textarea,select{
+    width:300px;
+    padding:8px;
+}
+
+button{
+    background:#3498db;
+    color:white;
+    border:none;
+    padding:10px 15px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#2980b9;
+}
+
+a{
+    text-decoration:none;
+    color:#3498db;
+    margin-right:10px;
+}
+
+form{
+    margin-bottom:20px;
+}
+
+textarea{
+    height:100px;
+}

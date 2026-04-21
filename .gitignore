@@ -1,0 +1,33 @@
+# Maven
+target/
+
+# IntelliJ
+.idea/
+*.iml
+
+# Eclipse
+.project
+.classpath
+.settings/
+
+# VSCode
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+logs/
+*.log
+
+# Tomcat temp
+work/
+temp/
+
+# Env / secrets
+application.properties
+hibernate.local.cfg.xml
+
+# Uploads (optional runtime files)
+uploads/
