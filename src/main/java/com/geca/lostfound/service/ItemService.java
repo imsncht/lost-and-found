@@ -29,6 +29,7 @@ public class ItemService {
         item.setType(type);
         item.setStatus("OPEN");
         item.setUser(user);
+        item.setCreatedAt(new java.util.Date());
 
         itemDAO.save(item);
     }
@@ -56,5 +57,13 @@ public class ItemService {
 
     public void delete(Long id) {
         itemDAO.delete(id);
+    }
+
+    public List<Item> getArchive() {
+        return itemDAO.getAllItemsArchive();
+    }
+
+    public List<Item> getByType(String type) {
+        return itemDAO.getByType(type);
     }
 }

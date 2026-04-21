@@ -13,7 +13,12 @@ public class ClaimService {
     private ClaimDAO claimDAO = new ClaimDAO();
     private ItemDAO itemDAO = new ItemDAO();
 
-    public void submitClaim(Long itemId, User claimant, String message) {
+    public void submitClaim(Long itemId,
+                        User claimant,
+                        String message,
+                        String color,
+                        String marks,
+                        String contents) {
 
         Item item = itemDAO.findById(itemId);
 
@@ -23,7 +28,11 @@ public class ClaimService {
         claim.setItem(item);
         claim.setClaimant(claimant);
         claim.setMessage(message);
+        claim.setColorAnswer(color);
+        claim.setIdentifyingMarks(marks);
+        claim.setContentsAnswer(contents);
         claim.setStatus("PENDING");
+        claim.setCreatedAt(new java.util.Date());
 
         claimDAO.save(claim);
     }

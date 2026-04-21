@@ -4,40 +4,67 @@
 <html>
 <head>
 <title>Claims</title>
+
+<link rel="stylesheet"
+href="${pageContext.request.contextPath}/css/style.css">
+
 </head>
 <body>
 
 <h2>Pending Claims</h2>
 
-<a href="../logout">Logout</a>
+<a href="${pageContext.request.contextPath}/admin/dashboard">
+Dashboard
+</a>
+|
 
-<table border="1" cellpadding="8">
+<a href="${pageContext.request.contextPath}/logout">
+Logout
+</a>
 
-<tr>
-<th>ID</th>
-<th>Message</th>
-<th>Status</th>
-<th>Action</th>
-</tr>
+<hr>
 
 <c:forEach items="${claims}" var="c">
 
-<tr>
-<td>${c.id}</td>
-<td>${c.message}</td>
-<td>${c.status}</td>
+<div style="border:1px solid #ccc; padding:15px; margin:15px;">
 
-<td>
+<h3>${c.item.title}</h3>
+
+<c:if test="${not empty c.item.imagePath}">
+    <img src="${pageContext.request.contextPath}/images?name=${c.item.imagePath}"
+         width="180"><br><br>
+</c:if>
+
+<b>Description:</b> ${c.item.description}<br>
+<b>Type:</b> ${c.item.type}<br>
+<b>Location:</b> ${c.item.location}<br>
+<b>Status:</b> ${c.item.status}<br>
+
+<hr>
+
+<b>Posted By:</b> ${c.item.user.name}<br>
+<b>Posted At:</b> ${c.item.createdAt}<br>
+
+<hr>
+
+<b>Claimed By:</b> ${c.claimant.name}<br>
+<b>Email:</b> ${c.claimant.email}<br>
+<b>Claimed At:</b> ${c.createdAt}<br>
+
+<hr>
+
+<b>Color Answer:</b> ${c.colorAnswer}<br>
+<b>Marks:</b> ${c.identifyingMarks}<br>
+<b>Contents:</b> ${c.contentsAnswer}<br>
+<b>Message:</b> ${c.message}<br><br>
+
 <a href="approve?id=${c.id}">Approve</a>
 |
 <a href="reject?id=${c.id}">Reject</a>
-</td>
 
-</tr>
+</div>
 
 </c:forEach>
-
-</table>
 
 </body>
 </html>

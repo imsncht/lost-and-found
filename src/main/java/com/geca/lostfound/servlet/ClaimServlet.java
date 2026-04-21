@@ -18,10 +18,14 @@ public class ClaimServlet extends HttpServlet {
 
         User user = (User) req.getSession().getAttribute("user");
 
-        Long itemId = Long.parseLong(req.getParameter("itemId"));
-        String message = req.getParameter("message");
-
-        claimService.submitClaim(itemId, user, message);
+        claimService.submitClaim(
+                Long.parseLong(req.getParameter("itemId")),
+                user,
+                req.getParameter("message"),
+                req.getParameter("colorAnswer"),
+                req.getParameter("identifyingMarks"),
+                req.getParameter("contentsAnswer")
+        );
 
         resp.sendRedirect("../items");
     }

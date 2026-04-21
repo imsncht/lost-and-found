@@ -64,7 +64,7 @@ public class AuthServlet extends HttpServlet {
                 session.setAttribute("user", user);
 
                 if (user.isAdmin()) {
-                    resp.sendRedirect("admin/claims");
+                    resp.sendRedirect("admin/dashboard");
                 } else {
                     resp.sendRedirect("items");
                 }

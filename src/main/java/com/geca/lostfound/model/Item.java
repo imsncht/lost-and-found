@@ -20,6 +20,13 @@ public class Item {
 
     private String location;
 
+    @Temporal(TemporalType.TIMESTAMP)
+    private java.util.Date createdAt;
+
+    public java.util.Date getCreatedAt() {
+        return createdAt;
+    }
+    
     @Temporal(TemporalType.DATE)
     private Date itemDate;
 
@@ -110,5 +117,9 @@ public class Item {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public void setCreatedAt(java.util.Date createdAt) {
+        this.createdAt = createdAt;
     }
 }

@@ -61,4 +61,47 @@ public class Claim {
     public void setStatus(String status) {
         this.status = status;
     }
+
+    @Temporal(TemporalType.TIMESTAMP)
+    private java.util.Date createdAt;
+
+    private String colorAnswer;
+
+    @Column(length = 3000)
+    private String identifyingMarks;
+
+    @Column(length = 3000)
+    private String contentsAnswer;
+
+    public java.util.Date getCreatedAt() {
+        return createdAt;
+    }
+
+    public String getColorAnswer() {
+        return colorAnswer;
+    }
+
+    public void setColorAnswer(String colorAnswer) {
+        this.colorAnswer = colorAnswer;
+    }
+
+    public String getIdentifyingMarks() {
+        return identifyingMarks;
+    }
+
+    public void setIdentifyingMarks(String identifyingMarks) {
+        this.identifyingMarks = identifyingMarks;
+    }
+
+    public String getContentsAnswer() {
+    return contentsAnswer;
+    }
+
+    public void setContentsAnswer(String contentsAnswer) {
+        this.contentsAnswer = contentsAnswer;
+    }
+
+    public void setCreatedAt(java.util.Date createdAt) {
+        this.createdAt = createdAt;
+    }
 }

@@ -8,11 +8,11 @@
 </head>
 <body>
 
-<h2>Lost & Found Board</h2>
+<h2>Lost & Found Dashboard</h2>
 
 <a href="items/post">Post Item</a> |
-<a href="logout">Logout</a>
-
+<a href="logout">Logout</a> |
+<a href="items/archive">Archive</a> |
 <hr>
 
 <table border="1" cellpadding="8">
@@ -23,6 +23,7 @@
 <th>Location</th>
 <th>Status</th>
 <th>Action</th>
+<th>Image</th>
 </tr>
 
 <c:forEach items="${items}" var="i">
@@ -33,14 +34,14 @@
 <td>${i.location}</td>
 <td>${i.status}</td>
 
+
 <td>
+<a href="items/detail?id=${i.id}">View Details</a>
+</td>
 
-<form method="post" action="claims/submit">
-<input type="hidden" name="itemId" value="${i.id}">
-<input type="text" name="message" placeholder="Claim message">
-<button>Claim</button>
-</form>
-
+<td>
+<img src="${pageContext.request.contextPath}/images?name=${i.imagePath}"
+     width="100">
 </td>
 
 </tr>

@@ -3,7 +3,7 @@
 <html>
 <head>
 <title>Item Details</title>
-<link rel="stylesheet" href="../../css/style.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
 </head>
 <body>
 
@@ -19,19 +19,30 @@
 
 <hr>
 
-<form method="post" action="../../claims/submit">
-    <input type="hidden" name="itemId" value="${item.id}">
+<form method="post"
+action="${pageContext.request.contextPath}/claims/submit">
 
-    <textarea name="message"
-              placeholder="Explain why this belongs to you"></textarea>
-    <br><br>
+<input type="hidden" name="itemId" value="${item.id}">
 
-    <button type="submit">Claim This Item</button>
+What color is the item?<br>
+<input type="text" name="colorAnswer"><br><br>
+
+Any identifying marks?<br>
+<textarea name="identifyingMarks"></textarea><br><br>
+
+What was inside / unique detail?<br>
+<textarea name="contentsAnswer"></textarea><br><br>
+
+Additional message:<br>
+<textarea name="message"></textarea><br><br>
+
+<button type="submit">Submit Claim</button>
+
 </form>
 
 <br>
 
-<a href="../../items">Back</a>
+<a href="${pageContext.request.contextPath}/items">Back</a>
 
 </body>
 </html>

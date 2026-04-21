@@ -73,4 +73,38 @@ public class ItemDAO {
         tx.commit();
         session.close();
     }
+
+    public List<Item> getAllItemsArchive() {
+
+        Session session =
+            HibernateUtil.getSessionFactory().openSession();
+
+        List<Item> list = session.createQuery(
+            "from Item order by id desc",
+            Item.class
+        ).list();
+
+        session.close();
+
+        return list;
+    }
+
+    public List<Item> getByType(String type) {
+
+        Session session =
+            HibernateUtil.getSessionFactory().openSession();
+
+        Query<Item> query = session.createQuery(
+            "from Item where type=:type order by id desc",
+            Item.class
+        );
+
+        query.setParameter("type", type);
+
+        List<Item> list = query.list();
+
+        session.close();
+
+        return list;
+    }
 }
