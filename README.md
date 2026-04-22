@@ -30,12 +30,19 @@ Password: password
 ## Run
 
 1. Import database from sql/schema.sql
-2. Configure hibernate.cfg.xml
+2. Copy hibernate.cfg.xml to hibernate.local.cfg.xml and add your local DB credentials.
 3. Run:
 
 mvn clean install
 
 4. Deploy WAR on Tomcat 9
+
+## Documentation
+
+- docs/SYSTEM_ARCHITECTURE.md
+- docs/SECURITY_DOCUMENTATION.md
+- docs/TROUBLESHOOTING_GUIDE.md
+- docs/DATABASE_EER.pdf
 
 ## Version
 

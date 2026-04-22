@@ -1,5 +1,7 @@
 # Maven
 target/
+*.war
+*.class
 
 # IntelliJ
 .idea/
@@ -31,3 +33,5 @@ hibernate.local.cfg.xml
 
 # Uploads (optional runtime files)
 uploads/
+
+src/main/resources/hibernate.local.cfg.xml
