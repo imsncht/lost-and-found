@@ -33,7 +33,9 @@ Password: password
 2. Configure hibernate.cfg.xml with DB credentials.
 3. Run:
 
+```
 mvn clean install
+```
 
 4. Deploy WAR on Tomcat 9
 
