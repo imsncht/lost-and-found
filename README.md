@@ -30,7 +30,7 @@ Password: password
 ## Run
 
 1. Import database from sql/schema.sql
-2. Copy hibernate.cfg.xml to hibernate.local.cfg.xml and add your local DB credentials.
+2. Configure hibernate.cfg.xml with DB credentials.
 3. Run:
 
 mvn clean install
